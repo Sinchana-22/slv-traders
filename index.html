@@ -197,8 +197,7 @@ nav {
 
     <script>
         
-        
-function autoExpand(element) {
+        function autoExpand(element) {
     element.style.height = "auto"; 
     element.style.height = (element.scrollHeight) + "px";
 }
@@ -215,42 +214,48 @@ function sendWhatsApp() {
 
     let isValid = true;
 
-    if (!/^[a-zA-Z\s]+$/.test(name)) {
-        document.getElementById("name-error").innerText = "❌ Enter a valid name (letters only).";
+    // ✅ Name Validation (No only spaces, only alphabets)
+    if (!/^[a-zA-Z\s]+$/.test(name) || name.length < 3) {
+        document.getElementById("name-error").innerText = "❌ Enter a valid name (min 3 letters).";
         isValid = false;
     }
 
+    // ✅ Phone Number Validation (Must be 10 digits & contain only numbers)
     if (!/^\d{10}$/.test(phone)) {
         document.getElementById("phone-error").innerText = "❌ Enter a valid 10-digit phone number.";
         isValid = false;
     }
 
-    if (message === "") {
+    // ✅ Message Validation (No empty order message)
+    if (message.length < 5) {
         document.getElementById("message-error").innerText = "❌ Please enter the products and quantity.";
         isValid = false;
     }
 
-    if (!isValid) return; // Stop if any validation fails
+    if (!isValid) return; // Stop if validation fails
 
     var confirmOrder = confirm("Are you sure you want to place this order?");
     if (!confirmOrder) return;
 
-    var whatsappMessage = `🚜 *New Order from SRI LAKSHMI VENKATESHWARA TRADERS* 🚜\n`
+    var whatsappMessage = `🚜 *New Order Recieved* 🚜\n`
                          + `👤 *Name:* ${name}\n`
                          + `📞 *Phone:* ${phone}\n\n`
-                         + `🛒 *Order Details:*\n${message}\n\n`
-                        
+                         + `🛒 *Order Details:*\n${message}\n\n`;
 
     window.open(`https://wa.me/919980101203?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
 
-    // Show success message
+    // ✅ Show success message
     document.getElementById("order-success").style.display = "block";
 
-    // Clear the form
+    // ✅ Clear the form
     document.getElementById("name").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("message").value = "";
+
+    // ✅ Reset message field height
+    document.getElementById("message").style.height = "auto";
 }
+
 </script>
 
 
