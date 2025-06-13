@@ -1,5 +1,5 @@
 # slv-traders
-This is the official website for SRI LAKSHMI VENKATESHWARA TRADERS, a trusted fertilizer and pesticide supplier located in Deenasamudra village, Maski Taluk, Raichur District, Karnataka. The website provides detailed information about the products we offer and how to contact us.
+This is the official website for SRI LAKSHMI VENKATESHWARA TRADERS, a trusted fertilizer and pesticide suppliers shop located in Deenasamudra village, Maski Taluk, Raichur District, Karnataka. The website provides detailed information about the products we offer and how to contact us.
 
  Features
 📋 Display of available fertilizers and pesticides with images and descriptions.
